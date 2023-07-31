@@ -1,0 +1,15 @@
+# Ignore general development files and directories
+*.pyc
+*.pyo
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.swp
+*.swo
+
+.DS_Store
+venv
+.git
+.gitignore
+

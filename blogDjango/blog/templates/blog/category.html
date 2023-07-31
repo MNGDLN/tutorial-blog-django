@@ -1,0 +1,33 @@
+{% extends 'blog/header.html' %}
+{% block head %}
+  <title>PythonTxT</title>
+  <meta name="description" content="">
+  <meta property="og:description" content="">
+  <meta property="og:title" content="PythonTxT">
+  <meta property="og:url" content="https://pythontxt.com">
+  <meta property="og:locale" content="en">
+{% endblock %} 
+
+{% block content %}
+
+<main class="mx-auto max-w-6xl min-h-screen text-four  dark:bg-primarydark dark:text-text-dark">
+    <section id="rockets" class="widescreen:section-min-height tallscreen:section-min-height my-2 scroll-mt-20 p-6">
+      <div class="mx-auto grid gap-8 sm:grid-cols-2 lg:grid-cols-3 justify-center">
+        {% for category in tutorialCategory %}
+            <div class="max-w-sm bg-secondary text-four dark:bg-primarydark dark:text-text-dark p-6 shadow border rounded-lg hover:transition-shadow duration-200 hover:shadow-2xl ">
+                <a href="/{{category.category_slug}}/">
+                <img src="/{{category.category_img}}" alt="{{category}}" class="object-contain h-50 rounded-md" />
+                <h5 class="mb-2 mt-2 text-sm font-bold tracking-tight  dark:bg-primarydark dark:text-text-dark ">{{category}}</h5>
+                </a>        
+                <p class="mb-3 font-normal ">{{category.category_summary |slice:":50"}}</p>
+                <a href="/{{category.category_slug}}/" class="py-2 bg-four text-primary dark:bg-four dark:text-primarydark rounded-md float-right px-7">View</a>
+            </div>
+            
+        {% endfor %}                          
+      </div>
+    </section>
+    <hr class="mx-auto w-1/2  dark:text-white" />
+     
+  </main>
+  
+{% endblock %}

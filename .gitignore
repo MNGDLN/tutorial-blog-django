@@ -1,0 +1,5 @@
+__pycache__
+.idea
+
+venv
+blogDjango/theme/static_src/node_modules

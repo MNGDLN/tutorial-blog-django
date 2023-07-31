@@ -1,0 +1,25 @@
+{% extends 'blog/header.html' %}
+
+{% block content %}
+
+<main class="mx-auto max-w-6xl min-h-screen text-four  dark:bg-primarydark dark:text-text-dark">
+    <section id="rockets" class="widescreen:section-min-height tallscreen:section-min-height my-2 scroll-mt-20 p-6">
+      <div class="mx-auto grid gap-8 sm:grid-cols-2 lg:grid-cols-3 justify-center">
+        {% for tut,part_one in series_urls.items %}
+            <div class="max-w-sm bg-secondary text-four dark:bg-primarydark dark:text-text-dark p-6 shadow rounded-lg border hover:transition-shadow duration-200 hover:shadow-2xl ">
+                <a href="/{{part_one}}/">
+                <img src="/{{tut.series_img}}" alt="{{tut.tutorial_series}}" class="object-contain h-50 rounded-md" />
+                <h5 class="mb-2 mt-2 text-sm font-bold tracking-tight  dark:bg-primarydark dark:text-text-dark ">{{tut}}</h5>
+                </a>        
+                <p class="mb-3 font-normal ">{{tut.series_summary |slice:":50"}}</p>
+                <a href="/{{part_one}}/" class="py-2 bg-four text-primary dark:bg-four dark:text-primarydark rounded-md float-right px-7">View</a>
+            </div>
+            
+
+            
+        {% endfor %}                          
+      </div>
+    </section>
+    <hr class="mx-auto w-1/2 bg-black dark:bg-white" />
+  </main>
+{% endblock %}

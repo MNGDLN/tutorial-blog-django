@@ -1,0 +1,6 @@
+Django==4.2.3
+django_tinymce==3.6.1
+Pillow==10.0.0
+django-browser-reload==1.11.0
+django-tailwind==3.6.0
+python-dotenv==1.0.0

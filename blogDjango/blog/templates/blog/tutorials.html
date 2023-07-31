@@ -1,0 +1,65 @@
+{% extends 'blog/header.html' %}
+{% block head %}
+   {% for t in tutorial %}
+      <title>{{t.tutorial_title}}</title>
+      <meta name="description" content="{{t.tutorial_description}}">
+      <meta property="og:description" content="{{t.tutorial_description}}">
+      <meta property="og:title" content="{{t.tutorial_title}}">
+      <meta property="og:url" content="https://pythontxt.com/{{ t.tutorial_slug }}">
+      <meta property="og:locale" content="en">
+   {% endfor %}
+{% endblock %}
+{% block content %}
+<main class="mx-auto max-w-6xl content-center my-10 min-h-screen">
+   <div class="grid  gap-3 lg:grid-cols-12  md:auto-cols-auto sm:auto-cols-auto p-4">
+      <div class="px-5 col-span-9 bg-secondary text-four  dark:bg-primarydark dark:text-text-dark dark:border dark:border-primary rounded-md overflow-hidden "> <!-- 70% width -->
+         {% for t in tutorial %}
+            <h1 class=' text-2xl dark:bg-gray-900 dark:text-gray-400 font-bold mb-4'>{{t.tutorial_title}}</h1>
+            <div class='text-sm break-words dark:bg-gray-900 dark:text-gray-400'>
+               {{t.tutorial_content|safe}}
+            </div>
+
+            <a class="font-medium mb-4 mt-4 underline hover:text-gray-700 float-right" href="/{{ tutorial_next_slug }}/">{{ tutorial_next_slug }}→</a>
+
+            {% if tutorial_index > 0 %}
+            <a class="font-medium mb-4 mt-4 underline hover:text-gray-700 float-left" href="/{{ tutorial_back_slug }}/">←Back</a>
+            {% endif %}
+
+
+
+         {% endfor %}
+      </div>
+      <div class="col-span-3 text-left lg:block md:block sm:hidden hidden w-full"> <!-- 30% width -->
+         <ul class="space-y-6 lg:space-y-2 border-slate-100 dark:border-slate-800 md:hidden sm:hidden lg:block hidden ">
+            {% for ts in tutorials_series_urls %}            
+            <li>  
+               {% if forloop.counter0 == tutorial_index %} 
+                  <a href="/{{ts.tutorial_slug}}/" class="font-medium underline hover:text-teal-700 flex p-5 rounded-lg w-full bg-primary text-four  dark:bg-primary dark:text-text-dark  ">
+                     {{ts}}
+                  </a>
+               {% else %} 
+               <a href="/{{ts.tutorial_slug}}/" class="font-medium underline hover:text-teal-700 flex p-5 rounded-lg w-full bg-secondary text-four  dark:bg-secondary dark:text-text-dark dark:border dark:border-primary">
+                     {{ts}}
+                  </a>
+                   
+               {% endif %}    
+                                     
+            </li>              
+            {% endfor %}                        
+         </ul>
+      </div>
+      
+    </div>
+
+    
+ 
+    
+</main> 
+
+
+
+ 
+
+{% endblock %}
+
+{% comment %} <h2 style="background-color: #ffffff;">Execute Python Syntax</h2> {% endcomment %}

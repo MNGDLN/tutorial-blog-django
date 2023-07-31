@@ -1,0 +1,87 @@
+{% extends 'blog/header.html' %}
+
+
+{% block content %}
+  {% if sent %}
+  <div class="min-h-screen flex justify-center mt-10 mx-auto px-4">
+    <div class="relative flex w-auto flex-col gap-1 md:gap-3 lg:w-[calc(100%-115px)]">
+      <div class="flex flex-grow flex-col gap-3">
+        <div class="flex flex-col items-start gap-4 whitespace-pre-wrap">
+          <div class="markdown prose w-full break-words dark:prose-invert dark bg-secondary text-four dark:bg-primarydark dark:text-text-dark rounded-md px-5 mx-auto">
+            <p>Dear {{ name }},</p><p>Thank you for taking the time to submit a message to my website. I will review your message and respond as soon as possible.</p><p>Thank you again for your message. I look forward to connecting with you soon.</p>
+            <p>Best regards,   PythonTXT</p>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+  {% else %}
+    <section class="bg-third text-four min-h-screen  dark:bg-primarydark dark:text-text-dark p-8">
+      <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md bg-secondary rounded-md">
+         
+        <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center">Contact Me</h2>        
+        
+        <p class="mb-3 font-light text-center sm:text-xl">Got a technical issue? Want to send feedback? Let us know.</p>
+        <div class="flex flex-wrap justify-center gap-2 mb-5 lg:mb-8 ">
+        <a href="https://github.com/MNGDLN" target="_blank">
+
+          <button class="bg-gray-700 p-2 font-semibold text-white inline-flex items-center space-x-2 rounded">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-5" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+              <g fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385c.6.105.825-.255.825-.57c0-.285-.015-1.23-.015-2.235c-3.015.555-3.795-.735-4.035-1.41c-.135-.345-.72-1.41-1.23-1.695c-.42-.225-1.02-.78-.015-.795c.945-.015 1.62.87 1.845 1.23c1.08 1.815 2.805 1.305 3.495.99c.105-.78.42-1.305.765-1.605c-2.67-.3-5.46-1.335-5.46-5.925c0-1.305.465-2.385 1.23-3.225c-.12-.3-.54-1.53.12-3.18c0 0 1.005-.315 3.3 1.23c.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23c.66 1.65.24 2.88.12 3.18c.765.84 1.23 1.905 1.23 3.225c0 4.605-2.805 5.625-5.475 5.925c.435.375.81 1.095.81 2.22c0 1.605-.015 2.895-.015 3.3c0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" fill="currentColor" /></g>
+            </svg>
+          </button>
+        </a>
+    </div>
+        
+        <form method="post" class="space-y-8">
+          <div>
+            <label for="email" class="block mb-2 text-sm font-medium">Your email</label>
+            <input type="email" id="email" name="email"  class="text-primary bg-four shadow-sm border border-gray-300 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:border-primary dark:bg-four dark:text-primary dark:focus:ring-primary-500 dark:focus:border-primary dark:shadow-sm-light" placeholder="name@email.com" required>
+
+          </div>
+          <div>
+            <label for="subject" class="block mb-2 text-sm font-medium">Subject</label>
+            <input type="text" id="subject" name="subject" class="text-primary bg-four block p-3 w-full text-sm rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary dark:bg-four dark:text-primary dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="Let me know how I can help you" required>
+          </div>
+          <div class="sm:col-span-2">
+            <label for="message" class="block mb-2 text-sm font-medium">Your message</label>
+            <textarea id="message" rows="6" name="message" class="block p-2.5 w-full text-sm bg-four text-primary rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary dark:bg-four dark:text-primary dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Leave a comment..."></textarea>
+          </div>
+          <button type="submit" class="text-four bg-primary dark:text-text-dark p-8 py-3 px-5 text-sm font-medium text-center rounded-lg  sm:w-fit hover:bg-primary focus:ring-4 focus:outline-none focus:ring-primary  dark:bg-primary dark:hover:bg-primary dark:focus:ring-primary">Send message</button>
+          {% csrf_token %}
+
+        </form>
+      </div>
+    </section>
+  {% endif %}
+
+  
+{% endblock %}
+
+
+
+
+
+  {% comment %} 
+  <section class="bg-white dark:bg-gray-900">
+    <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
+        <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">Contact Me</h2>
+        <p class="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">Got a technical issue? Want to send feedback? Let us know.</p>
+        <form action="#" class="space-y-8">
+            <div>
+                <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your email</label>
+                <input type="email" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="name@email.com" required>
+            </div>
+            <div>
+                <label for="subject" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Subject</label>
+                <input type="text" id="subject" class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="Let me know how I can help you" required>
+            </div>
+            <div class="sm:col-span-2">
+                <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Your message</label>
+                <textarea id="message" rows="6" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Leave a comment..."></textarea>
+            </div>
+            <button type="submit" class="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-teal-600 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Send message</button>
+        </form>
+    </div>
+  </section>
+   {% endcomment %}

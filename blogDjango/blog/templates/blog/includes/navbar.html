@@ -1,0 +1,39 @@
+{% load static %}
+<section class="mx-auto flex max-w-6xl items-center justify-between p-4">
+    <h1 class="text-3xl font-medium">      
+      <a href="http://127.0.0.1/" class="flex items-center mb-4 sm:mb-0">
+        <img src="{% static "blog/img/fav.svg" %}" class="h-8 ml-2 mr-2" alt="PythonTxT logo" />
+        <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">PythonTxT</span>
+      </a>
+
+    </h1>
+    <div>
+      <button id="hamburger-button" class="relative h-8 w-8 cursor-pointer text-3xl md:hidden">
+        <!-- &#9776; -->
+        <div
+          class="absolute top-4 -mt-0.5 h-1 w-8 rounded bg-four transition-all duration-500 before:absolute before:h-1 before:w-8 before:-translate-x-4 before:-translate-y-3 before:rounded before:bg-four before:transition-all before:duration-500 before:content-[''] after:absolute after:h-1 after:w-8 after:-translate-x-4 after:translate-y-3 after:rounded after:bg-four after:transition-all after:duration-500 after:content-['']">
+        </div>
+      </button>
+      <nav class="hidden space-x-8 text-xl md:block" aria-label="main">
+        <a href="http://127.0.0.1/" class="hover:opacity-90">Home</a>
+        {% comment %} <a href="http://127.0.0.1/blog/" class="hover:opacity-90">Blog</a> {% endcomment %}
+        <a href="http://127.0.0.1/contact/" class="hover:opacity-90">Contact Us</a>
+        <a href="http://127.0.0.1/about/" class="hover:opacity-90">About</a>
+      </nav>
+    </div>
+</section>
+
+
+
+  <section id="mobile-menu"
+    class="top-68 justify-content-center absolute hidden w-full origin-top animate-open-menu flex-col bg-secondary text-four text-5xl dark:bg-primarydark dark:text-text-dark">
+    <!-- <button class="text-8xl self-end px-6">
+              &times;
+          </button> -->
+    <nav class="flex min-h-screen flex-col items-center py-8" aria-label="mobile">
+      <a href="http://127.0.0.1/" class="w-full py-6 text-center hover:opacity-90">Home</a>
+      {% comment %} <a href="http://127.0.0.1/blog/" class="w-full py-6 text-center hover:opacity-90">Blog</a> {% endcomment %}
+      <a href="http://127.0.0.1/contact/" class="w-full py-6 text-center hover:opacity-90">Contact</a>
+      <a href="http://127.0.0.1/about/" class="w-full py-6 text-center hover:opacity-90">About</a>
+    </nav>
+  </section>

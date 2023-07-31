@@ -1,0 +1,32 @@
+{% load tailwind_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="{% static 'blog/img/fav.svg' %}">
+    {% block head %}
+    
+    {% endblock %}
+
+    {% tailwind_css %}
+    <script src="{% static 'blog/js/main.js' %}"></script>
+    <link href="{% static "blog/css/prism.css" %}" rel="stylesheet">
+    
+    
+</head>
+<body class='bg-third dark:bg-primarydark dark:text-text-dark'>
+    <header class="sticky top-0 z-10 bg-primary text-four dark:bg-primarydark1 dark:text-text-dark">
+        {% include 'blog/includes/navbar.html' %}
+    </header>
+    {% block content %}
+    
+    {% endblock %} 
+    
+    {% include 'blog/includes/footer.html' %}
+
+</body>
+</html>
+ 
