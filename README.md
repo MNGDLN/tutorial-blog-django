@@ -4,13 +4,7 @@ Tutorial Blog Django is a web application that allows Admin to create, read, upd
 It is built using Django, Tailwind CSS, and Tinymce.
 
 ![Project Demo](link-to-demo-gif-or-screenshot)
-
-## Table of Contents
-
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)  
-
+ 
 ## Features
 - Blog Functionality: Admin CRUD
 - Admin Panel: Utilizes Tinymce as a rich text editor 
