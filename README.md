@@ -31,7 +31,7 @@ pip install virtualenv
 python -m virtualenv venv
 source venv/bin/activate
 pip install -r requirements.txt
-python manage.py runserver
+python blogDjango/manage.py runserver
 ```
 homepage: http://127.0.0.1/
 dashboard: http://127.0.0.1/admin/
